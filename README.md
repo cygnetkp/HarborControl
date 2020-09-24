@@ -33,4 +33,8 @@ How to Run?
 - For front-end application first open "HarborControlDemo" folder in visual studio code and from the top menu terminal select new terminal install all node package using "npm install" 
 command.
 - To run front-end application use command "ng serve --o" which open default port "http://localhost:4200"
+
+For sailboat I display both wind speed in front-end. 
+1 Current wind speed of Durban - Use for intial boat selection when first time load. 
+2 Fixed wind speed:  To check sailboat condition of greater than 10 and less than 30 km wind speed then and then it enter in the perimeter.
  
