@@ -32,7 +32,7 @@ How to Run?
 - First open back-end project solutions and build all project solutions and install all dependency packages, required packages and run the project in debug.
 - For front-end application first open "HarborControlDemo" folder in visual studio code and from the top menu terminal select new terminal install all node package using "npm install" 
 command.
-- To run front-end application use command "ng serve --o" which open default port "http://localhost:4200"
+- To run front-end application use command "ng serve --o" or "npm start" which open default port "http://localhost:4200"
 
 For sailboat I display both wind speed in front-end. 
 1 Current wind speed of Durban - Use for intial boat selection when first time load. 
