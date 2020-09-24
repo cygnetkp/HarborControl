@@ -2,8 +2,8 @@
     <div class="col-md-3">
         <strong>Current Wind Speed: </strong> <label>{{_currentWindSpeed}} Km/h</label>
     </div>
-    <div class="col-md-3">
-        <strong>Fix Wind Speed: </strong> <label>{{_windSpeedTemp}} Km/h</label>
+    <div class="col-md-6">
+        <strong>Fix Wind Speed: </strong> <label>{{_windSpeedTemp}} Km/h (Use only for to check sail boat enter in perimeter or not)</label> 
     </div>
 </div>
 <form [formGroup]="formCriteria" (ngSubmit)="submitData()">
