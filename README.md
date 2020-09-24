@@ -37,4 +37,7 @@ command.
 For sailboat I display both wind speed in front-end. 
 1 Current wind speed of Durban - Use for intial boat selection when first time load. 
 2 Fixed wind speed:  To check sailboat condition of greater than 10 and less than 30 km wind speed then and then it enter in the perimeter.
+
+Back-end  log file generate in directory on current date 
+For Example: C:\DemoLogs\nlog-all-2020-09-23.txt
  
