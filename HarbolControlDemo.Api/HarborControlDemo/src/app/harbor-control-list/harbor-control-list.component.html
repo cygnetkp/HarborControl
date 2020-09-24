@@ -1,0 +1,91 @@
+<div class="row mt-10">
+    <div class="col-md-3">
+        <strong>Current Wind Speed: </strong> <label>{{_currentWindSpeed}} Km/h</label>
+    </div>
+    <div class="col-md-3">
+        <strong>Fix Wind Speed: </strong> <label>{{_windSpeedTemp}} Km/h</label>
+    </div>
+</div>
+<form [formGroup]="formCriteria" (ngSubmit)="submitData()">
+    <div class="row mt-10">
+        <label class="col-lg-2">Enter Number of boats:</label>
+        <div class="col-lg-2">
+            <input formControlName="boatCount"><br>
+            <div *ngIf="formCriteria.get('boatCount').touched && formCriteria.get('boatCount').invalid"
+                class="alert alert-danger">
+                <div *ngIf="formCriteria.get('boatCount').errors.required">Enter any value</div>
+                <div *ngIf="formCriteria.get('boatCount').errors.pattern">Enter only numbers</div>
+            </div>
+        </div>
+        <div class="col-lg-1">
+            <button type="submit" [disabled]="!formCriteria.valid" class="btn btn-primary">Generate</button>
+        </div>
+    </div>
+</form>
+<div *ngIf="boatInformationList">
+    <div class="row mt-10">
+        <div class="col-lg-4">
+            <h3 class="mt-10">Boat Informations</h3>&nbsp;
+        </div>
+        <div class="col-lg-8">
+            <strong>Note: For demo purpose consider 10 minutes equal to 1 second</strong>
+        </div>
+    </div>
+
+    <div class="row mt-10">
+        <div class="col-md-3">
+            <strong>Name</strong>
+        </div>
+        <div class="col-md-2">
+            <strong>Speed</strong>
+        </div>
+        <div class="col-md-2">
+            <strong>Actual Time</strong>
+        </div>
+        <div class="col-md-2">
+            <strong>Destination Time</strong>
+        </div>
+        <div class="col-md-3">
+            <strong>Status</strong>
+        </div>
+    </div>
+    <div class="row mt-10" *ngFor="let item of boatInformationList">
+        <div class="col-md-3">
+            <div [ngSwitch]=item.boatType>
+                <div *ngSwitchCase="0">
+                    {{BoatType.cargoShip}}
+                </div>
+                <div *ngSwitchCase="1">
+                    {{BoatType.sailBoat}}
+                </div>
+                <div *ngSwitchCase="2">
+                    {{BoatType.speedBoat}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            {{item.boatSpeed}}
+        </div>
+        <div class="col-md-2">
+            {{item.boatActualTimeDuration}}<span>/s</span>
+        </div>
+        <div class="col-md-2">
+            <span *ngIf="item.boatStatus!=0"> {{item.boatReachTimeDuration}}/s</span>
+        </div>
+        <div class="col-md-3">
+            <div [ngSwitch]=item.boatStatus>
+                <div *ngSwitchCase="0">
+                </div>
+                <div *ngSwitchCase="1">
+                    Queue
+                </div>
+                <div *ngSwitchCase="2">
+                    InProgress
+                </div>
+                <div *ngSwitchCase="3">
+                    Completed
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
